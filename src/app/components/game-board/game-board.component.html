@@ -1,0 +1,24 @@
+<div class="game-board-container">
+    <div class='board' #board>
+        @if(tiles && tileHeight) {
+            @for(row of tiles; track tiles; let rowIdx = $index;) {
+                @for(tile of row; track tile; let colIdx = $index) {
+                    <div class= "tile-div" [ngStyle]="{'top.px': rowIdx * (tileHeight*0.75), 'left': 'calc(50% - '
+                     + ((row.length/2*tileHeight)-(colIdx * tileHeight)) + 'px)'}">
+                        <img [ngStyle]="{'height.px': tileHeight, 'width.px': tileHeight}"
+                        [src]="'/assets/PNG/' + tile + '.png'" alt="">
+                        @if(tile != 'desert') {
+                            <div class="numbers-div">
+                                <div class="numbers">{{ getToken() }}</div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        } @else {
+            <div class="loader">
+                <p>Loading..</p>
+            </div>
+        }
+    </div>
+</div>

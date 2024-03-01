@@ -1,0 +1,45 @@
+.game-board-container {
+    --numbers-size: 3vh;
+    @media (max-width: 780px) {
+        --numbers-size: 5vh;
+    }
+}
+
+.game-board-container {
+    height: 100vh;
+    .loader {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--numbers-size);
+    }
+    .board {
+        height: 100%;
+        .tile-div {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .numbers-div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .numbers {
+                    width: 35%;
+                    height: 35%;
+                    border-radius: 50%;
+                    background: beige;
+                    border: 2px solid red;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: var(--numbers-size);
+                }
+            }
+        }
+    }
+}
