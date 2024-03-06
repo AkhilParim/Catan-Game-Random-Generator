@@ -1,25 +1,73 @@
-$background-color: #ECE0D5;
-$primary-text-color: #FF593E;
-$secondary-text-color: #3B4069;
+$primary-background-color: #EEEEEE;;
+$secondary-background-color: #E8DFCA;
+$primary-text-color: #7895B2;
+$secondary-text-color: #AEBDCA;
+$border-color: #AEBDCA;
 
 .home-container {
-    width: 100%;
+    background-color: #191919;
+    padding: 8%;
     height: 100vh;
-    background: $background-color;
+    display: flex;
+}
+.main-container {
+    background: $primary-background-color;
+    width: 100%;
+    // height: 100%;
+    border-radius: 48px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
+    padding: 4%;
+    // padding: 2%;
     .title {
         font-size: 10vh;
         color: $primary-text-color;
         font-weight: 800;
         line-height: normal;
         text-align: center;
+        margin-bottom: 6%;
     }
     .settings {
+        --border-radius: 6px;
         display: flex;
         flex-direction: column;
         gap: 24px;
+        text-align: center;
+        > div p {
+            margin-bottom: 8px;
+        }
+        .submit {
+            padding: 12px 16px;
+            border: 2px solid $border-color;
+            background-color: $primary-background-color;
+            border-radius: var(--border-radius);
+            &:hover { cursor: pointer; }
+        } 
+        .toggle-btn {
+            display: flex;
+            border: 2px solid $border-color;
+            border-radius: var(--border-radius);
+            .toggle {
+                padding: 12px 24px;
+                &.selected, &:hover {
+                    background-color: $secondary-background-color;
+                    color: #fff;
+                    cursor: pointer;
+                }
+                &:hover {
+                    background-color: $primary-background-color;
+                }
+            }
+            .toggle:first-child {
+                border-right: solid $border-color 1px;
+                border-radius: var(--border-radius) 0 0 var(--border-radius);
+            }
+            .toggle:nth-child(2) {
+                border-radius: 0 var(--border-radius) var(--border-radius) 0;
+                border-left: solid $border-color 1px;
+            }
+        }
     }
 }

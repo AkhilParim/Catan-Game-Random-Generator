@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { Router, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, MatButtonToggleModule, MatButtonModule],
+  imports: [RouterOutlet, FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -17,8 +16,12 @@ export class HomeComponent {
 
   gameSize: String = '4';
 
+  changeGameSize(size: String) {
+    this.gameSize = size;
+  }
+
   startGame(f: NgForm) {
-    this.router.navigate(['/game', { gameSize: f.value.gameSize, excludedNumbers: f.value.exclude }]);
+    this.router.navigate(['/game', { gameSize: this.gameSize, excludedNumbers: f.value.exclude }]);
   }
 
 }

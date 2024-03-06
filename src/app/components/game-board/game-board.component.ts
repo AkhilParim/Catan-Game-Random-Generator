@@ -39,10 +39,10 @@ export class GameBoardComponent implements OnInit, AfterViewInit {
 
   @ViewChild('board') board!: ElementRef;
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.calculateBoardDimentions();
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event: any) {
+  //   this.calculateBoardDimentions();
+  // }
 
   ngOnInit() {
     this.tiles = this.generateGame(this.gameSize);
@@ -93,7 +93,6 @@ export class GameBoardComponent implements OnInit, AfterViewInit {
     
     if(this.excludedNumbers.includes(token)) {
       let selected =  this.acceptedTokens[Math.floor(Math.random() * this.acceptedTokens.length)]
-      console.log(token, selected);
       return selected
     }
     return token

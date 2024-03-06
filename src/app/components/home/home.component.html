@@ -1,16 +1,26 @@
 <div class="home-container">
+  <div class="main-container">
     <p class="title">Catan Random Board Generator</p>
   
     <form #form="ngForm" (ngSubmit)="startGame(form)" novalidate>
       <div class="settings">
-        <mat-button-toggle-group ngModel [(ngModel)]="gameSize" name="gameSize" aria-label="Game Size">
+        <!-- <mat-button-toggle-group ngModel [(ngModel)]="gameSize" name="gameSize" aria-label="Game Size">
           <mat-button-toggle value="4">4 Players</mat-button-toggle>
           <mat-button-toggle value="6">6 Players</mat-button-toggle>
-        </mat-button-toggle-group>
-        <p>Exclude any numbers?</p>
-        <input name="exclude" ngModel />
-        <p>Use comma(,) seperated numbers</p>
-        <button mat-raised-button color="primary">Submit</button>
+        </mat-button-toggle-group> -->
+        <div class="toggle-btn">
+          <div class="toggle" [ngClass]="{selected: gameSize == '4'}" (click)="changeGameSize('4')">3-4 players</div>
+          <div class="toggle" [ngClass]="{selected: gameSize == '6'}" (click)="changeGameSize('6')">5-6 players</div>
+        </div>
+        <div>
+          <p>Exclude any numbers?</p>
+          <input class="input" name="exclude" ngModel />
+        </div>
+        <div>
+          <p>Use comma(,) seperated numbers</p>
+          <button color="primary" class="submit">Submit</button>
+        </div>
       </div>
     </form>
   </div>
+</div>

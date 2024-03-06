@@ -1,7 +1,7 @@
 .game-board-container {
-    --numbers-size: 3vh;
+    --numbers-size: 4vh;
     @media (max-width: 780px) {
-        --numbers-size: 5vh;
+        --numbers-size: 2vh;
     }
 }
 
@@ -32,7 +32,7 @@
                     width: 35%;
                     height: 35%;
                     border-radius: 50%;
-                    background: beige;
+                    background: #E7E7E2;
                     border: 2px solid red;
                     display: flex;
                     justify-content: center;
