@@ -10,6 +10,9 @@ body {
     height: 100vh;
     margin: 0;
     font-family: var(--common-font);
+    * {
+        box-sizing: border-box;
+    }
 }
 p {
     margin: 0;
