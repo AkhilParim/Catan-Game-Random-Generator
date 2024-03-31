@@ -1,27 +1,32 @@
 <div class="home-container">
-  <img class="clouds" [src]="'/assets/clouds.svg'" alt="">
-  <div class="trees">
-    <img class="tree" [src]="'/assets/tree.svg'" alt="">
-    <img class="tree" [src]="'/assets/tree.svg'" alt="">
-    <img class="tree" [src]="'/assets/tree.svg'" alt="">
+  <div class="background">
+    <div class="sun" #sun></div>
+    <img class="clouds" #clouds [src]="'/assets/clouds.svg'" alt="">
+    <div class="trees" #trees>
+      <img class="tree" [src]="'/assets/tree.svg'" alt="">
+      <img class="tree" [src]="'/assets/tree.svg'" alt="">
+      <img class="tree" [src]="'/assets/tree.svg'" alt="">
+    </div>
   </div>
   <p class="title">Catan Random Board Generator</p>
-  <form #form="ngForm" (ngSubmit)="startGame(form)" novalidate>
-    <div class="settings">
-      <div class="board-size">
-        <p>Select Board Size</p>
-        <div class="toggle-btn">
-          <div class="toggle" [ngClass]="{selected: gameSize == '4'}" (click)="changeGameSize('4')">3-4 players</div>
-          <div class="toggle" [ngClass]="{selected: gameSize == '6'}" (click)="changeGameSize('6')">5-6 players</div>
+  <div class="form-div" #formDiv>
+    <form #form="ngForm" (ngSubmit)="startGame(form)" novalidate>
+      <div class="settings">
+        <div class="board-size">
+          <p>Select Board Size</p>
+          <div class="toggle-btn">
+            <div class="toggle" [ngClass]="{selected: gameSize == '4'}" (click)="changeGameSize('4')">3-4 players</div>
+            <div class="toggle" [ngClass]="{selected: gameSize == '6'}" (click)="changeGameSize('6')">5-6 players</div>
+          </div>
+        </div>
+        <div class="exclude-numbers">
+          <input class="input" placeholder="Exclude any Numbers?" autocomplete="off" name="exclude" ngModel />
+          <p>Use comma(,) seperated numbers</p>
+        </div>
+        <div>
+          <button color="primary" class="submit">Generate</button>
         </div>
       </div>
-      <div class="exclude-numbers">
-        <input class="input" placeholder="Exclude any Numbers?" autocomplete="off" name="exclude" ngModel />
-        <p>Use comma(,) seperated numbers</p>
-      </div>
-      <div>
-        <button color="primary" class="submit">Generate</button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
